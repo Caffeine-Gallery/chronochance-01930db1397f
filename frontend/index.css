@@ -1,0 +1,92 @@
+.game-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    text-align: center;
+}
+
+.header {
+    margin-bottom: 2rem;
+}
+
+.scores {
+    display: flex;
+    justify-content: space-around;
+    margin: 1rem 0;
+    font-size: 1.2rem;
+}
+
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 4px;
+    margin: 2rem auto;
+    max-width: 600px;
+    background-color: #eee;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.cell {
+    aspect-ratio: 1;
+    background-color: #fff;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.cell.treasure {
+    background-color: #ffd700;
+    animation: pulse 1s infinite;
+}
+
+.cell:hover {
+    transform: scale(1.05);
+}
+
+.collect-animation {
+    position: absolute;
+    color: #4CAF50;
+    font-size: 1.5rem;
+    animation: floatUp 1s ease-out forwards;
+    pointer-events: none;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+}
+
+#start-button {
+    font-size: 1.2rem;
+    padding: 0.5rem 2rem;
+    margin-top: 1rem;
+}
+
+@media (max-width: 600px) {
+    .game-board {
+        gap: 2px;
+        padding: 5px;
+    }
+    
+    .cell {
+        font-size: 0.8rem;
+    }
+}
